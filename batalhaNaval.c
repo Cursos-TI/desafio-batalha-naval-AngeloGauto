@@ -3,33 +3,53 @@
 int main (){
 
     //declara matriz com valores inseridos para criar tabuleiro
-    int tabuleiro [10] [10] = {
+    int tabuleiro [10] [10];
 
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
-
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+           tabuleiro [i][j] = 0;
+        }
+        
+    }
+    
     char * coluna [10] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
 
-    //insere navio horizontal
-    tabuleiro [2][3] = 3;
-    tabuleiro [2][4] = 3;
-    tabuleiro [2][5] = 3;
+    //insere navio 1 horizontal posicionamento for aninhado
+    for (int i = 2; i == 2; i++)
+    {
+        for (int j = 3; j <= 5; j++)
+        {
+            tabuleiro [i][j] = 3;
+        } 
+    }
 
-    //insere navio na vertical
-    tabuleiro [6][6] = 3;
-    tabuleiro [7][6] = 3;
-    tabuleiro [8][6] = 3;
+    //insere navio 2 vertical posicionamento for aninhado
+    for (int j = 4; j == 4; j++)
+    {
+        for (int i = 6; i <= 8; i++)
+        {
+            tabuleiro [i][j] = 3;
+        }
+    }
 
+    //Exibe navio na primeira diagonal posicionamento por for
+     for (int i = 0, j = 0, cont1 = 0; i < 10 && cont1 < 3 ; i++, j++)
+    {
+       tabuleiro[i][j+5] = 3; //exibe navio movimentando as casas
+       ++cont1;
+    }
+    
+    //Exibe navio na segunda diagonal posicionamento por for
+     for (int i = 0, cont2 = 0; i < 10 && cont2 < 3; i++)
+    {
+       int j = 9 - i;
+       tabuleiro[i+4][j] = 3;//exibe navio movimentando as casas
+       ++cont2;
+    }
 
+    
     //exibe nome do jogo
     printf ("-----TABULEIRO BATALHA NAVAL-----\n");
 
